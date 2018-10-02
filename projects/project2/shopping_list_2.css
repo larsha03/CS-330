@@ -1,0 +1,16 @@
+@charset "utf-8";
+button#gobutt {
+    width: 100%;
+}
+
+button#saveButt {
+    float: left;
+}
+
+button#remAllButt {
+    float: right;
+}
+
+button#remPurchButt {
+    float: right;
+}
