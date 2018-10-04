@@ -14,6 +14,20 @@ function clickedon() {
     shoppingModel.addItem(it)
 }
 
+function clickedOnSave() {
+    let savedcols = [vals.itemname, vals.qty, vals.priority, vals.store, vals.category, vals.price]
+}
+
+function clickedOnRemPurch() {
+    if (it.checked) {
+        it.removeChild()
+    }
+}
+
+function clickedOnRemAll() {
+
+}
+
 
 function populateSelect(selectId, sList) {
     let sel = document.getElementById(selectId, sList)
