@@ -60,6 +60,10 @@ class ShoppingList extends Subject {
         this.newItems = []
         this.oldItems = [];
     }
+    removeAll() {
+        this.newItems = []
+        
+    }
 
     addItem(it) {
         this.newItems.push(it)

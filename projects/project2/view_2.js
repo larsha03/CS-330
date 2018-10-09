@@ -28,4 +28,10 @@ class ShoppingView {
         }
         parent.appendChild(row)
     }
+
+    deleteAllRows(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild)
+        }
+    }
 }
