@@ -14,3 +14,15 @@ button#remAllButt {
 button#remPurchButt {
     float: right;
 }
+
+.low {
+    background-color: red;
+}
+
+.medium {
+    background-color: yellow;
+}
+
+.high {
+    background-color: green;
+}

@@ -1,0 +1,21 @@
+button#get {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    padding: 10px;
+}
+
+button#enter {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    padding: 10px;
+}
+
+input#input_num {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
