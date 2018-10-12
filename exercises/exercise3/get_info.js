@@ -21,18 +21,22 @@ async function populate() {
 */
 async function clickedOn(){
     var input = document.getElementById('input_num').value;
-    var input1 = +input + +1;
-    var input2 = input-1;
+    var inputPlus = +input + +1;
+    var inputMinus = input-1;
     var number = await Promise.all([getData(`http://numbersapi.com/${input}?json`)]);
-    var number1 = await Promise.all([getData(`http://numbersapi.com/${input1}?json`)]);
-    var number2 = await Promise.all([getData(`http://numbersapi.com/${input2}?json`)]);
+    var numberAbove = await Promise.all([getData(`http://numbersapi.com/${inputPlus}?json`)]);
+    var numberBelow = await Promise.all([getData(`http://numbersapi.com/${inputMinus}?json`)]);
 
-    
     console.log(input);
-    console.log(number);
-    console.log(number1);
-    console.log(number2);
-
-    document.getElementById
+    console.log(numberBelow[0].text);
+    console.log(number[0].text);
+    console.log(numberAbove[0].text);
+    
+    document.getElementById("displayBelow").innerHTML = numberBelow[0].text;
+    document.getElementById("displayNumber").innerHTML = number[0].text;
+    document.getElementById("displayAbove").innerHTML = numberAbove[0].text;
+    
+    //let i = document.createElement('div');
+    //i.getElementById("display").classList.add('row');
 }
 
