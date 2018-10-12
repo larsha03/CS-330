@@ -19,3 +19,12 @@ input#input_num {
     width: 60%;
 }
 
+.card {
+    width: 18rem;
+    top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: palegreen;
+    color: darkgreen;
+    float: middle;
+}
