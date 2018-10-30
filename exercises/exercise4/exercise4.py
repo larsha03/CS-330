@@ -35,11 +35,11 @@ def index():
     if request.method == 'GET':
         num = request.cookies.get('number')
         if num:
-            return render_template('table.html', number=num)
+            return render_template('prime_table.html', number=num)
         else:
             return render_template('ask.html')
     else:
-        response = make_response(redirect(url_for('table.html')))
+        response = make_response(redirect(url_for('prime_table.html')))
 
         if request.form.get('number'):
             response.set_cookie('number', '', expires=0)
@@ -53,7 +53,7 @@ def index():
 
 @app.route('/<int:n>', methods=['GET'])
 def get_primes():    
-    return 'number available:' + n
+    return 'number available:' + str(n)
 
     #raise NotImplementedError
 
