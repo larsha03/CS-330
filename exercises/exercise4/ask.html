@@ -2,10 +2,11 @@
 
 {% block content %}
 
-<div class='alert alert-primary'>Enter a number {{number}}!</div>
+<div class='alert alert-primary'>Enter a number!</div>
 
 <form action="/" method="GET">
-    <input type="input" name="number" value='{{number}}' class="form-control">
+    <div class='container' id='num'></div>
+    <input type="text" id='number' value="num" class="form-control">
 </form>
 
 {% endblock %}

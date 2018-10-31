@@ -29,39 +29,32 @@ def get_n_primes(n: int) -> list:
     raise NotImplementedError
 
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/')
 def index():
     print(request.args)
     if request.method == 'GET':
-        num = request.cookies.get('number')
-        if num:
-            return render_template('prime_table.html', number=num)
-        else:
-            return render_template('ask.html')
-    else:
-        response = make_response(redirect(url_for('prime_table.html')))
-
-        if request.form.get('number'):
-            response.set_cookie('number', '', expires=0)
-        else:
-            num = request.form.get('number')
-            response.set_cookie('number', num)
-
-        return response
-
+        return render_template('ask.html')
     raise NotImplementedError
 
-@app.route('/<int:n>', methods=['GET'])
-def get_primes():    
-    return 'number available:' + str(n)
+@app.route('/<int:n>',methods=['GET','POST'])
+def get_primes(n):
+    x= True
+    for i in range(2, n):
+        if n%i == 0:
+            x = False
+            break
+    if x:
+        return 'Number is prime: ' +  str(n)
+    else:
+        return 'Number is not prime: ' +  str(n)
+    
+    raise NotImplementedError
 
-    #raise NotImplementedError
-
-@app.route('/ask/num')
+@app.route('/ask/num', methods=['GET','POST'])
 def ask_a_number():
-    pass
-
-    #raise NotImplementedError
+    if request.method == 'GET':
+        return render_template('ask.html')    
+    raise NotImplementedError
 
 
 if __name__ == '__main__':
