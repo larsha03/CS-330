@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 
 def is_prime(n: int) -> bool:
+<<<<<<< HEAD
     x = True 
     for i in range(2, n):
         if n%i == 0:
@@ -26,11 +27,18 @@ def get_n_primes(n: int) -> list:
     for i in range(1, a+1):
         is_prime(i)
     return n
+=======
+    raise NotImplementedError
+
+
+def get_n_primes(n: int) -> list:
+>>>>>>> 560c2c54b62c4610235f2cd20c1ab3e25ae14f6f
     raise NotImplementedError
 
 
 @app.route('/')
 def index():
+<<<<<<< HEAD
     print(request.args)
     if request.method == 'GET':
         return render_template('ask.html')
@@ -54,8 +62,22 @@ def get_primes(n):
 def ask_a_number():
     if request.method == 'GET':
         return render_template('ask.html')    
+=======
+    raise NotImplementedError
+
+@app.route('/<int:n>')
+def get_primes(n):
+    raise NotImplementedError
+
+@app.route('/ask')
+def ask_a_number():
+>>>>>>> 560c2c54b62c4610235f2cd20c1ab3e25ae14f6f
     raise NotImplementedError
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     app.run()
+=======
+    app.run()
+>>>>>>> 560c2c54b62c4610235f2cd20c1ab3e25ae14f6f

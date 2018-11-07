@@ -4,6 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+<<<<<<< HEAD
+=======
+flask = "*"
+pylint = "*"
+>>>>>>> 560c2c54b62c4610235f2cd20c1ab3e25ae14f6f
 
 [dev-packages]
 
