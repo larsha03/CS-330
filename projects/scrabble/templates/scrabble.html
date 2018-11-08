@@ -1,0 +1,71 @@
+{% extends "base.html"%}
+{% block content %}
+
+<head>
+    <div class='alert alert-primary'>Enter a letter</div>
+
+<form action="/permutation" method="POST">
+    <div class="container">
+    <input type="text" name='letter1' placeholder="Letter">
+    <input type="text" name='letter2' placeholder="Letter">
+    <input type="text" name='letter3' placeholder="Letter">
+    <input type="text" name='letter4' placeholder="Letter">
+    <input type="text" name='letter5' placeholder="Letter">
+    <input type="text" name='letter6' placeholder="Letter">
+    <input type="text" name='letter7' placeholder="Letter">
+    <input type="submit" value="Help Me!" class="btn btn-primary btn-lg btn-block">
+    </div>
+    <div class="input-group mb-3">
+        <select class="custom-select" name='dictionary' id="inputGroupSelect02">
+          <option selected>Choose...</option>
+          <option value="american">american</option>
+          <option value="british">british</option>
+        </select>
+        
+      </div>
+    
+
+</form>
+
+</head>
+
+
+<body>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Word</th>
+        <th scope="col">Length</th>
+        <th scope="col">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><ul>
+              {%for i in result %}
+           
+                   <p>{{i}}</p>
+               {% endfor %}
+           </ul></th>
+
+        <td><ul>
+            {%for i in result %}
+         
+                 <p>{{i|length}}</p>
+             {% endfor %}
+         </ul>
+
+        </td>
+        <td><ul>{%for i in count %}
+         
+            <p>{{i}}</p>
+        {% endfor %}
+            <ul></td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
+</body>
+
+  {% endblock %}
