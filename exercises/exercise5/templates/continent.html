@@ -14,9 +14,9 @@
     <form action="/" method="POST">
         <div class="row">
             <div class="col">
-                <select class="form-control" name="country">
+                <select class="form-control" name="continent">
                     {% for o in options %}
-                    <option value="{{o[0]}}">{{o[1]}}</option>
+                    <option value="{{o[0]}}">{{o[0]}}</option>
                     {% endfor %}
                 </select>
             </div>
