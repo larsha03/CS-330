@@ -1,30 +1,25 @@
-from flask import Flask, session, redirect, url_for, escape, request
+from flask import Flask, render_template, session, redirect, url_for, escape, request
 
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def index():
    if 'username' in session:
-       return 'Logged in as %s' % escape(session['username'])
-
+       return render_template('index.html', username=escape(session['username']))
    else:
-       return 'User is not logged in'
+       return render_template('login.html')
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST'])
 def login():
-   if request.method == 'POST':
-       session['username'] = request.form['username']
-       return redirect(url_for('index'))
+    session['username'] = request.form['username']
+    return redirect(url_for('index'))
 
-   return '''
-       <form method="post">
-           <p><input type=text name=username>
-           <p><input type=submit value=Login>
-       </form>
-   '''
-
-@app.route('/logout')
+@app.route('/logout', methods=['GET'])
 def logout():
+    # remove the username from the session if it's there
+    session.pop('username', None)
+    return redirect(url_for('index'))
 
-   session.pop('username', None)
-   return redirect(url_for('index'))
+if __name__ == '__main__':
+    app.run
