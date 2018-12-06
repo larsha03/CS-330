@@ -31,15 +31,16 @@ def index():
         
     if request.form.get("continent"):
         continent = request.form.get("continent")
-        query = f"select * from nfl where year='{continent}';"
+        order = request.form.get("order")
+        query = f"select * from nfl where year='{continent}' order by fortyyd;"
 
     if request.form.get("region"):
         region = request.form.get("region")
-        query = f"select * from country where region='{region}';"
+        query = f"select * from nfl where round='{region}';"
 
     if request.form.get("country"):
         country = request.form.get("country")
-        query = f"select * from country where code='{country}';"
+        query = f"select * from nfl where position='{country}';"
 
 
 
@@ -58,17 +59,20 @@ def continent():
 @app.route("/region", methods=["GET", "POST"])
 def region():
 
-    all_regions = get_data_from_db("select DISTINCT region from country order by region;")
-    region = request.form.get("region")
-    query = f"select * from country where region='{region}';"
+    all_regions = get_data_from_db("select DISTINCT round from nfl;")
+    region = 3
+    query = f"select * from nfl where round='{region}';"
     result = get_data_from_db(query)
     return render_template("region.html", options=all_regions, rows=result)
 
 
 @app.route("/country", methods=["GET", "POST"])
 def country():
-    all_countries = get_data_from_db("select code, name from country;")
-    return render_template("country.html", options=all_countries)
+    all_countries = get_data_from_db("select DISTINCT position from nfl;")
+    country = "CB"
+    query = f"select * from nfl where position='{country}';"
+    result = get_data_from_db(query)
+    return render_template("country.html", options=all_countries, rows=result)
 
 
 
