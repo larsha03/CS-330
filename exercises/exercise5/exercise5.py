@@ -32,7 +32,7 @@ def index():
     if request.form.get("continent"):
         continent = request.form.get("continent")
         order = request.form.get("order")
-        query = f"select * from nfl where year='{continent}' order by fortyyd;"
+        query = f"select * from nfl where year='{continent}' order by {order};"
 
     if request.form.get("region"):
         region = request.form.get("region")
@@ -52,7 +52,7 @@ def continent():
 
     all_continents = get_data_from_db("select DISTINCT year from nfl;")
     continent = 2012
-    query = f"select * from nfl where year='{continent}';"
+    query = f"select * from nfl where year='{continent}' order by fortyyd;"
     result = get_data_from_db(query)
     return render_template("continent.html", options=all_continents, rows=result)  
 
