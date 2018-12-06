@@ -4,12 +4,12 @@
 
 <div id="container">
     <div class="row">
-        <div class="btn btn-light"><a href="/country">Country info</a></div>
-        <div class="btn btn-light"><a href="/region">Region info</a></div>
-        <div class="btn btn-light"><a href="/continent">Continent info</a></div>
+        <div class="btn btn-light"><a href="/country">Position</a></div>
+        <div class="btn btn-light"><a href="/region">Draft Round</a></div>
+        <div class="btn btn-light"><a href="/continent">Year</a></div>
     </div>
     <div class="alert alert-info">
-        Pick a position:
+        Pick a Position:
     </div>
     <form action="/" method="POST">
         <div class="row">
@@ -18,6 +18,19 @@
                     {% for o in options %}
                     <option value="{{o[0]}}">{{o[0]}}</option>
                     {% endfor %}
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-control" name="order">
+                    <option disabled selected value> --Order By:-- </option>
+                    <option value="player">Player</option>
+                    <option value="school">School</option>
+                    <option value="weight">Weight</option>
+                    <option value="fortyyd">40-yard Dash Time</option>
+                    <option value="vertical">Vertical</option>
+                    <option value="benchreps">Bench Reps</option>
+                    <option value="drafted">Team Drafted</option>
+                    
                 </select>
             </div>
             <div class="col">

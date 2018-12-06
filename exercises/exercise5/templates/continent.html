@@ -4,12 +4,12 @@
 
 <div id="container">
     <div class="row">
-        <div class="col"><a href="/country">Country info</a></div>
-        <div class="col"><a href="/region">Region info</a></div>
-        <div class="col"><a href="/continent">Continent info</a></div>
+        <div class="btn btn-light"><a href="/country">Position</a></div>
+        <div class="btn btn-light"><a href="/region">Draft Round</a></div>
+        <div class="btn btn-light"><a href="/continent">Year</a></div>
     </div>
     <div class="alert alert-info">
-        Pick a country
+        Pick a Draft Year:
     </div>
     <form action="/" method="POST">
         <div class="row">
@@ -22,8 +22,8 @@
             </div>
             <div class="col">
                 <select class="form-control" name="order">
-                    
-                    <option value="player">player</option>
+                    <option disabled selected value> --Order By:-- </option>
+                    <option value="player">Player</option>
                     <option value="school">School</option>
                     <option value="weight">Weight</option>
                     <option value="fortyyd">40-yard Dash Time</option>
