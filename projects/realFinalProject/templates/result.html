@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="btn btn-light"><a href="/country">Position</a></div>
+        <div class="btn btn-light"><a href="/region">Draft Round</a></div>
+        <div class="btn btn-light"><a href="/continent">Year</a></div>
+    </div>
+        <table class="table table-striped table-dark"" id="words">
+            <thead class="thead-light">
+                <tr>
+                    <th>Player</th>
+                    <th>School</th>
+                    <th>Weight</th>
+                    <th>40YD</th>
+                    <th>Vertical</th>
+                    <th>Bench Reps</th>
+                    <th>Drafted</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in rows %}
+                <tr>
+                    <td>{{ r[2] }}</td>
+                    <td>{{ r[4] }}</td>
+                    <td>{{ r[5] }}</td>
+                    <td>{{ r[6] }}</td>
+                    <td>{{ r[7] }}</td>
+                    <td>{{ r[8] }}</td>
+                    <td>{{ r[12] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
