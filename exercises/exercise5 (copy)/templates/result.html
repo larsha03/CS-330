@@ -11,24 +11,24 @@
         <table class="table table-hover table-bordered" id="words">
             <thead class="thead-light">
                 <tr>
-                    <th>Player</th>
-                    <th>School</th>
-                    <th>Weight</th>
-                    <th>40YD</th>
-                    <th>Vertical</th>
-                    <th>Bench Reps</th>
-                    <th>Drafted</th>
+                    <th>Name</th>
+                    <th>Continent</th>
+                    <th>Region</th>
+                    <th>Area</th>
+                    <th>Population</th>
+                    <th>Government</th>
+                    <th>Head</th>
                 </tr>
             </thead>
             <tbody>
                 {% for r in rows %}
                 <tr>
+                    <td>{{ r[1] }}</td>
                     <td>{{ r[2] }}</td>
+                    <td>{{ r[3] }}</td>
                     <td>{{ r[4] }}</td>
-                    <td>{{ r[5] }}</td>
                     <td>{{ r[6] }}</td>
-                    <td>{{ r[7] }}</td>
-                    <td>{{ r[8] }}</td>
+                    <td>{{ r[11] }}</td>
                     <td>{{ r[12] }}</td>
                 </tr>
                 {% endfor %}

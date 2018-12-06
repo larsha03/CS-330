@@ -13,7 +13,7 @@ app = Flask(__name__)
 def get_data_from_db(query):
     try:
         conn = psycopg2.connect(
-            user="larsha03", host="knuth.luther.edu", port=5432, dbname="larsha03"
+            user="larsha03", host="knuth.luther.edu", port=5432, dbname="world"
         )
     except:
         raise ConnectionError("Could not connect to the database")
@@ -31,7 +31,7 @@ def index():
         
     if request.form.get("continent"):
         continent = request.form.get("continent")
-        query = f"select * from nfl where year='{continent}';"
+        query = f"select * from country where continent='{continent}';"
 
     if request.form.get("region"):
         region = request.form.get("region")
@@ -49,9 +49,9 @@ def index():
 @app.route("/continent", methods=["GET","POST"])
 def continent():
 
-    all_continents = get_data_from_db("select DISTINCT year from nfl;")
-    continent = 2012
-    query = f"select * from nfl where year='{continent}';"
+    all_continents = get_data_from_db("select DISTINCT continent from country order by continent;")
+    continent = request.form.get("continent")
+    query = f"select * from country where continent='{continent}';"
     result = get_data_from_db(query)
     return render_template("continent.html", options=all_continents, rows=result)  
 

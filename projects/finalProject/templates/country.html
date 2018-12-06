@@ -9,12 +9,12 @@
         <div class="col"><a href="/continent">Continent info</a></div>
     </div>
     <div class="alert alert-info">
-        Pick a country
+        Pick a position
     </div>
     <form action="/" method="POST">
         <div class="row">
             <div class="col">
-                <select class="form-control" name="country">
+                <select class="form-control" name="position">
                     {% for o in options %}
                     <option value="{{o[0]}}">{{o[1]}}</option>
                     {% endfor %}

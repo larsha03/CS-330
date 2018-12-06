@@ -9,10 +9,10 @@ from flask import redirect, url_for
 app = Flask(__name__)
 
 
-def get_data_from_db(query: str) -> list:
+def get_data_from_db(query):
     try:
         conn = psycopg2.connect(
-            user="larsha03", host="knuth.luther.edu", port=5432, dbname="world"
+            user="larsha03", host="knuth.luther.edu", port=5432, dbname="larsha03"
         )
     except:
         raise ConnectionError("Could not connect to the database")
@@ -28,19 +28,13 @@ def index():
     if request.method == "GET":
         return render_template("index.html")    
         
-    if request.form.get("continent"):
-        continent = request.form.get("continent")
-        query = f"select * from country where continent='{continent}';"
+    if request.form.get("country"):
+        position = request.form.get("position")
+        query = f"select * from nfl where Position='{position}';"
 
     if request.form.get("region"):
-        region = request.form.get("region")
-        query = f"select * from country where region='{region}';"
-
-    if request.form.get("country"):
-        country = request.form.get("country")
-        query = f"select * from country where code='{country}';"
-
-
+        position = request.form.get("round")
+        query = f"select * from nfl where Position='{position}';"
 
     result = get_data_from_db(query)
     return render_template("result.html", rows=result)
